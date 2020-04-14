@@ -1,45 +1,317 @@
-// first we need to create a stage
-var stage = new Konva.Stage({
-    container: 'container',   // id of container <div>
-    width: 500,
-    height: 160
-  });
-  
-  var layer = new Konva.Layer();
-  
-  var rect1 = new Konva.Rect({
-    x: 20,
-    y: 20,
-    width: 100,
-    height: 50,
-    fill: 'green',
-    stroke: 'black',
-    strokeWidth: 4
-  });
-  
-  var rect2 = new Konva.Rect({
-    x: 170,
-    y: 20,
-    width: 100,
-    height: 50,
-    fill: 'red',
-    shadowBlur: 10,
-    cornerRadius: 10
-  });
-  
-  var rect3 = new Konva.Rect({
-    x: 320,
-    y: 20,
-    width: 100,
-    height: 100,
-    fill: 'blue',
-    cornerRadius: [0, 10, 20, 30]
-  });
-  
-  // add the shapes to the layer
-  layer.add(rect1);
-  layer.add(rect2);
-  layer.add(rect3);
-  
-  stage.add(layer);
-  layer.draw();
+<script>
+        var stage = new Konva.Stage({
+          container:'my container',
+          width:800,
+          height:800
+        });
+        var layer = new Konva.Layer();
+        var rect1 = new Konva.Rect({
+            x: 0,
+            y: 0,
+            width: 400,
+            height: 400,
+            fill: 'green',
+        });
+        var rect2 = new Konva.Rect({
+            x: 200,
+            y: 200,
+            width: 200,
+            height: 200,
+            fill: 'blue',
+            stroke: 'white',
+            strokeWidth: 4
+        });
+        var rect3 = new Konva.Rect({
+            x: 200,
+            y: 0,
+            width: 200,
+            height: 200,
+            fill: 'yellow',
+            stroke: 'white',
+            strokeWidth: 4
+        });
+        var circle = new Konva.Circle({
+            x: stage.width() / 4,   // x position of the center
+            y: stage.height() / 4,  // y position of the center
+            radius: 70,             // circle radius
+            fill: 'red',            // color to fill the area
+            stroke: 'black',        // color to draw the line
+            strokeWidth: 4          // line width
+        });
+        layer.add(rect1);
+        layer.add(rect2);
+        layer.add(rect3);
+        layer.add(circle);
+        stage.add(layer);
+        layer.draw();
+    </script>
+    <script>//Draw a house
+        var stage = new Konva.Stage({
+          container:'container6',
+          width:500,
+          height:300
+        });
+        
+        var layer = new Konva.Layer();
+        
+        var triangle_1 = new Konva.RegularPolygon({
+          x:100,
+          y:100,
+          sides:3,
+          radius:80,
+          fill:'red'
+        });
+        
+        var rect_1 = new Konva.Rect({
+          x:48,
+          y:140, 
+          width:100,
+          height:90,
+          fill:'gray'
+        });
+        
+        var rect_2 = new Konva.Rect({
+          x:60,
+          y:160, 
+          width:30,
+          height:70,
+          fill:'black'
+        });
+        
+        var rect_3 = new Konva.Rect({
+          x:105,
+          y:160, 
+          width:30,
+          height:30,
+          fill:'blue'
+        });
+        
+        layer.add(triangle_1);
+        layer.add(rect_1);
+        layer.add(rect_2);
+        layer.add(rect_3);
+        stage.add(layer);
+        layer.draw();    
+    </script>
+    <script>//Draw a tree
+        var stage = new Konva.Stage({
+          container:'container5',
+          width:500,
+          height:300
+        });
+        
+        var layer = new Konva.Layer();
+        
+        var triangle_1 = new Konva.RegularPolygon({
+          x:50,
+          y:50,
+          sides:3,
+          radius:30,
+          fill:'blue'
+        });
+        
+        var triangle_2 = new Konva.RegularPolygon({
+          x:50,
+          y:80,
+          sides:3,
+          radius:40,
+          fill:'black'
+        });
+        
+        var triangle_3 = new Konva.RegularPolygon({
+          x:50,
+          y:110,
+          sides:3,
+          radius:50,
+          fill:'green'
+        });
+        
+        
+        var rect = new Konva.Rect({
+          x:40,
+          y:135, 
+          width:20,
+          height:80,
+          fill:'brown'
+        });
+        
+        layer.add(triangle_1);
+        layer.add(triangle_2);
+        layer.add(triangle_3);
+        layer.add(rect);
+        stage.add(layer);
+        layer.draw();
+    </script>
+
+    <script>
+        var stage = new Konva.Stage({
+            container: 'container4',
+            width: 340,
+            height: 220
+        });
+        
+        var layer = new Konva.Layer();
+        
+        var simpleText = new Konva.Text({
+        x: stage.width() / 2,
+        y: 5,
+        text: 'Simple Text',
+        fontSize: 30,
+        fontFamily: 'Calibri',
+        fill: 'green'
+        });
+        
+        // to align text in the middle of the screen, we can set the
+        // shape offset to the center of the text shape after instantiating it
+        simpleText.offsetX(simpleText.width() / 2);
+        
+        // since this text is inside of a defined area, we can center it using
+        // align: 'center'
+        var complexText = new Konva.Text({
+        x: 20,
+        y: 50,
+        text:
+        "COMPLEX TEXT\n\nAll the world's a stage, and all the men and women merely players. They have their exits and their entrances.",
+        fontSize: 18,
+        fontFamily: 'Calibri',
+        fill: '#555',
+        width: 300,
+        padding: 20,
+        align: 'center'
+        });
+        
+        var rect = new Konva.Rect({
+        x: 20,
+        y: 50,
+        stroke: '#555',
+        strokeWidth: 5,
+        fill: '#ddd',
+        width: 300,
+        height: complexText.height(),
+        shadowColor: 'black',
+        shadowBlur: 10,
+        shadowOffset: [10, 10],
+        shadowOpacity: 0.2,
+        cornerRadius: 10
+        });
+        
+        // add the shapes to the layer
+        layer.add(simpleText);
+        layer.add(rect);
+        layer.add(complexText);
+        
+        // add the layer to the stage
+        stage.add(layer);</script>
+    <script> 
+        var stage = new Konva.Stage({
+            container: 'container3',
+            width: 340,
+            height: 200
+        });
+        
+        var layer = new Konva.Layer();
+        
+        var redLine = new Konva.Line({
+        points: [15, 120, 140, 71, 200, 110, 300, 70],
+        stroke: 'red',
+        strokeWidth: 15,
+        lineCap: 'round',
+        lineJoin: 'round'
+        });
+            
+        var greenLine = new Konva.Line({
+        points: [15, 70, 140, 23, 250, 60, 300, 20],
+        stroke: 'blue',
+        strokeWidth: 2,
+        lineJoin: 'round',
+        /*
+                * line segments with a length of 33px
+                * with a gap of 10px
+                */
+        dash: [33, 10]
+        });
+        
+        // add the shapes to the layer
+        layer.add(greenLine);
+        layer.add(redLine);
+        
+        // add the layer to the stage
+        stage.add(layer);</script>
+    <script>
+        // first we need to create a stage
+        var stage = new Konva.Stage({
+            container: 'container2',   // id of container <div>
+            width: 500,
+            height: 160
+        });
+        
+        var layer = new Konva.Layer();
+        
+        var rect1 = new Konva.Rect({
+            x: 20,
+            y: 20,
+            width: 100,
+            height: 50,
+            fill: 'green',
+            stroke: 'black',
+            strokeWidth: 4
+        });
+        
+        var rect2 = new Konva.Rect({
+            x: 170,
+            y: 20,
+            width: 100,
+            height: 50,
+            fill: 'red',
+            shadowBlur: 10,
+            cornerRadius: 10
+        });
+        
+        var rect3 = new Konva.Rect({
+            x: 320,
+            y: 20,
+            width: 100,
+            height: 100,
+            fill: 'blue',
+            cornerRadius: [0, 10, 20, 30]
+        });
+        
+        // add the shapes to the layer
+        layer.add(rect1);
+        layer.add(rect2);
+        layer.add(rect3);
+        
+        stage.add(layer);
+        layer.draw();
+    </script>
+
+    <script>
+        // first we need to create a stage
+        var stage = new Konva.Stage({
+        container: '123456',   // id of container <div>
+        width: 160,
+        height: 160
+        });
+
+        // then create a layer
+        var layer = new Konva.Layer();
+
+        // create our shape
+        var circle = new Konva.Circle({
+        x: stage.width() / 2,   // x position of the center
+        y: stage.height() / 2,  // y position of the center
+        radius: 70,             // circle radius
+        fill: 'red',            // color to fill the area
+        stroke: 'black',        // color to draw the line
+        strokeWidth: 4          // line width
+        });
+
+        // add the shape to the layer
+        layer.add(circle);
+
+        // add the layer to the stage
+        stage.add(layer);
+
+        // draw the image
+        layer.draw();
+    </script>
